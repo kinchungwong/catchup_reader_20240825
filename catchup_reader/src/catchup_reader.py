@@ -184,7 +184,7 @@ class CatchUpReader:
                 new_data_2 = new_data[cut_idx:]
                 self._queued_bytes.extend(new_data_1)
                 self._consume_queued_bytes()
-                self._queued_bytes = new_data_2
+                self._queued_bytes = bytearray(new_data_2)
 
     def _consume_queued_bytes(self) -> None:
         """Convert all queued bytes into delimited bytes.
